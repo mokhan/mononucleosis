@@ -1,4 +1,4 @@
-all : clean console/hello.exe winforms/hello.exe
+all : clean console/hello.exe winforms/hello.exe server
 
 clean:
 	rm -f **/*.exe
@@ -15,5 +15,5 @@ winforms/hello.exe : winforms/hello.cs
 winforms : winforms/hello.exe
 	mono winforms/hello.exe
 
-webforms : webforms/hello.aspx
+server : webforms/index.aspx
 	cd webforms && xsp4 --port 9000
