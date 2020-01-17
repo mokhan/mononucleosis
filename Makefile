@@ -1,4 +1,4 @@
-all : clean console/hello.exe winforms/hello.exe server
+all : clean console/hello.exe winforms/hello.exe gtk
 
 clean:
 	rm -f **/*.exe
@@ -15,5 +15,13 @@ winforms/hello.exe : winforms/hello.cs
 winforms : winforms/hello.exe
 	mono winforms/hello.exe
 
-server : webforms/index.aspx
+webforms/index :
+
+webforms : webforms/index
 	cd webforms && xsp4 --port 9000
+
+gtk/hello.exe : gtk/hello.cs
+	mcs gtk/hello.cs -pkg:gtk-sharp-2.0
+
+gtk : gtk/hello.exe
+	mono gtk/hello.exe
