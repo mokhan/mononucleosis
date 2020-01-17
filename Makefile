@@ -1,6 +1,7 @@
 all : clean packages console/hello.exe winforms/hello.exe gtk
 
 clean:
+	git clean -fd
 	rm -f **/*.exe
 	rm -fr packages
 
