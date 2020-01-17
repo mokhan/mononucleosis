@@ -14,3 +14,6 @@ winforms/hello.exe : winforms/hello.cs
 
 winforms : winforms/hello.exe
 	mono winforms/hello.exe
+
+webforms : webforms/hello.aspx
+	cd webforms && xsp4 --port 9000
