@@ -1,7 +1,11 @@
-all : clean console/hello.exe winforms/hello.exe gtk
+all : clean packages console/hello.exe winforms/hello.exe gtk
 
 clean:
 	rm -f **/*.exe
+	rm -fr packages
+
+packages :
+	nuget restore -PackagesDirectory packages
 
 console/hello.exe : console/hello.cs
 	mcs console/hello.cs
